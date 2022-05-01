@@ -1,0 +1,9 @@
+.App{
+  padding:5px;
+  padding-top:10px;
+}
+.filter-container{
+  padding:10px;
+  display: flex;
+  justify-content: space-around;
+}
