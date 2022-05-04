@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get(`https://python-project-sky.herokuapp.com/approach1?radius=${this.state.range}&lat=${this.state.userCoordinates.lat}&lng=${this.state.userCoordinates.lng}`)
+    axios.get(`https://python-project-sky.herokuapp.com/approach${this.state.type ? 1 : 2}?radius=${this.state.range}&lat=${this.state.userCoordinates.lat}&lng=${this.state.userCoordinates.lng}`)
     .then(res=>{
       console.log(res.data.data);
       this.setState({...this.state,data:res.data.data})
@@ -22,7 +22,7 @@ class App extends Component {
 
   handleChange(e=this.state.range){
     const beforeTime=new Date().getTime();
-    axios.get(`https://python-project-sky.herokuapp.com/approach1?radius=${e}&lat=${this.state.userCoordinates.lat}&lng=${this.state.userCoordinates.lng}`)
+    axios.get(`https://python-project-sky.herokuapp.com/approach${this.state.type ? 1 : 2}?radius=${e}&lat=${this.state.userCoordinates.lat}&lng=${this.state.userCoordinates.lng}`)
     .then(res=>{
       const afterTime=new Date().getTime();
       const responseTime=afterTime-beforeTime;
@@ -105,7 +105,6 @@ class App extends Component {
               name={"Current location"}
               onDragEnd={e=>
                 {
-                  // this.handleChange()
                   console.log(e.latLng.lat())
                   console.log(e.latLng.lng())
                   this.setState({...this.state,userCoordinates:{lat:e.latLng.lat(),lng:e.latLng.lng()}})
@@ -126,7 +125,7 @@ class App extends Component {
             console.log("E",e)
               return <Marker
               key={`store-${idx}`}
-              position={{lat:parseFloat(e.latitude),lng:parseFloat(e.longitude)}}
+              position={{lat:parseFloat(e.location.coordinates[0]),lng:parseFloat(e.location.coordinates[1])}}
               // draggable
               icon={'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png'}
               name={"Current location"}
