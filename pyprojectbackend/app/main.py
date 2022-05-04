@@ -48,10 +48,11 @@ def index():
     if radius is None or latitude is None or longitude is None:
         return jsonify({"success": False, "message": "Please enter valid radius,lat and lng field in query"})
     # print(name)
-    records = (db.stores.find())
+    records = (db.storesAgain.find())
     ans = []
     for store in records:
-        if is_inside(float(store['latitude']), float(store['longitude']), float(latitude), float(longitude)) <= int(radius):
+        print(store)
+        if is_inside(float(store['location']['coordinates'][0]), float(store['location']['coordinates'][1]), float(latitude), float(longitude)) <= int(radius):
             store['_id'] = str(store['_id'])
             ans.append(store)
 
@@ -75,3 +76,4 @@ def index2():
         ans.append(store)
 
     return jsonify({"data": ans})
+# python-project-sky

@@ -10,17 +10,17 @@ db = mongo_client.dummy_database  # assigning database to a variable
 
 
 # funtion To insert dummy data
-# def insert_dummy_data():
+def insert_dummy_data():
 
-#     db.storesAgain.insert_many([{
-#     "title":"Store",
-#     "description":"Test Desecription",
-#     "location":{
-#         "type":"Point",
-#         "coordinates":[26.2124,78.1772]
-#     }
-#     },])
-# insert_dummy_data()
+    db.storesAgain.insert_many([{
+    "title":"Store",
+    "description":"Test Desecription",
+    "location":{
+        "type":"Point",
+        "coordinates":[23.157101053251655,75.7999656402588]
+    }
+    },])
+insert_dummy_data()
 
 # db.storesAgain.create_index([("location", GEOSPHERE)])
 
@@ -35,10 +35,10 @@ db = mongo_client.dummy_database  # assigning database to a variable
 # }
 # }]
 
-pipeline2 = [{}]
-ans = list(db.storesAgain.find({"location": {"$geoWithin": {
-           "$centerSphere": [[26.2124, 78.1772], 1000/6371]}}}))
-print("ans", ans)
+# pipeline2 = [{}]
+# ans = list(db.storesAgain.find({"location": {"$geoWithin": {
+#            "$centerSphere": [[26.2124, 78.1772], 1000/6371]}}}))
+# print("ans", ans)
 
 
 # ans = list(db.stores.aggregate(pipeline2))
