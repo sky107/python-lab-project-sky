@@ -18,4 +18,9 @@
 [Full PPT](https://github.com/sky107/python-lab-project-sky/files/8690946/Geospatial.Queries.using.Python.and.MongoDB.3.pdf)
 
 [Youtube Explanation - Approach 1](https://www.youtube.com/watch?v=Bn9Nw7hr8_0)
+
+
+
+
+
 [Youtube Explanation - Approach 2](https://www.youtube.com/watch?v=7Lfo-LJbu90)
